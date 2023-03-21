@@ -10,7 +10,7 @@ description: This page describes the Part II of the Labo 2
 
 ### Prerequisites
 
-* [ ] Create an AMI of your Drupal Instance (CLD-INSTANCE-DEVTEAM\[XX])
+* [ ] Create an AMI of your Drupal Instance (CLD-INSTANCE-DEVOPSTEAM\[XX])
 
 ```
 [INPUT]
@@ -120,7 +120,7 @@ Go back to the VPC config panel !
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Engine                    | Please refer to your Drupal version                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Template                  | Dev / Test                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| DB instance identifier    | DBINS-DEVOPSTEAMS\[XX]-RDS-DRUPAL                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| DB instance identifier    | DBINS-DEVOPSTEAM\[XX]-RDS-DRUPAL                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | DB User                   | admin                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | DB Password               | \[pwd]                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | DB instance class         | <ul><li>Burstable classes</li><li>db.t3.micro</li></ul>                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -193,7 +193,7 @@ If you have a prompt with `mysql>` it means that it worked
 
 * (In prod, you should inform end user for maintenance)
 * Clean active sessions
-* Connect to the database and create the database and a new user (rds\_admin pahX2dVhrLRncD)
+* Connect to the database and create the database and a new user
 
 ```sql
 CREATE DATABASE drupal;
