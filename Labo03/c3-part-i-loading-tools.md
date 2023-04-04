@@ -56,13 +56,42 @@ https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/monitor-i
 
 ### Step 2 - Stress
 
-1. Setup [htop](https://htop.dev/) and [stress](http://manpages.ubuntu.com/manpages/focal/man1/stress.1.html) on your drupal instance.
-2. Stress your instance and observe it with htop.
-3. Observe the monitoring view on the AWS Console.
+* [ ] Setup [htop](https://htop.dev/) and [stress](http://manpages.ubuntu.com/manpages/focal/man1/stress.1.html) on your drupal instance.
+* [ ] Stress your instance and observe it with htop.
+* [ ] Observe the monitoring view on the AWS Console.
+
+```
+//TODO
+Screen shot of htop and aws monitoring graphics... we should observe the same stress "spikes".
+```
 
 ### Step 3 - Analysis
 
 * When you resolve the DNS name of the load balancer into IP addresses while the load balancer is under high load what do you see? Explain.
-* Did this test really test the load balancing mechanism? What are the limitations of this simple test? What would be necessary to do realistic testing?
 
-&#x20;
+```
+[INPUT]
+
+[OUTPUT]
+
+[Explanation - about ]
+```
+
+* Did this test really test the load balancing mechanism?
+
+```
+[Explanation]
+```
+
+&#x20; What are the limitations of this simple test?&#x20;
+
+```
+[Explanation]
+```
+
+What would be necessary to do realistic testing?
+
+```
+[Explanation]
+```
+
