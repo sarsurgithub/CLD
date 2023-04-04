@@ -1,7 +1,3 @@
----
-description: This page describes the challenge to solve
----
-
 # Laboratoire 03
 
 
@@ -15,7 +11,7 @@ Delivery:
 * Technical doc on private repo with notif on teams channel
 {% endhint %}
 
-### Challenge's targets:
+### Lab's targets:
 
 * Experimenting loading tools
 * Set monitoring on the cloud
@@ -23,7 +19,7 @@ Delivery:
 
 ### Given
 
-Before your start, you must have completed the previous challenge.
+Before your start, you must have completed the previous labs.
 
 ### Backlog
 

@@ -1,7 +1,3 @@
----
-description: This page describes the Part I of the Challenge 3
----
-
 # C3 - Part I - Loading tools
 
 ### Step 0 - Testing policy
