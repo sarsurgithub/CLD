@@ -2,13 +2,13 @@
 
 ### Use Case
 
-Case 1 : As soon as the CPU load of the main Drupal instance reach 70%, the autoscaling mechanism must launch new instances (horizontal scaling) to absorb this load (max 4 in total).
+Case 1 : As soon as the CPU load of the main Drupal instance reach X%, the auto-scaling mechanism must launch new instances (horizontal scaling) to absorb this load.
 
 Case 2 : As soon as the load goes down, we must observe the instances reduce in number until the return to normal operation status. &#x20;
 
 ### Step 0 - Read the doc
 
-* [AWS - What is EC2 autoscaling ?](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
+* [AWS - What is EC2 auto-scaling ?](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
 
 ### Step 1 - Create a launch template
 
@@ -22,10 +22,10 @@ Case 2 : As soon as the load goes down, we must observe the instances reduce in 
 | Name                         | CLD-LC-DEVOPSTEAM\[XX]                            |
 | Template version description | As the template name                              |
 | Template Tags                | <p>Key : Name<br>Value : As the template name</p> |
-| AMI                          | Your own drupal AMI                               |
+| AMI                          | Your own Drupal AMI                               |
 | Instance type                | t3.micro                                          |
 | Key Pair (login)             | As the original instance                          |
-| Subnet                       | not included in template                          |
+| Subnet                       | not included in template (see ASG below)          |
 | Security Groups              | As the original instance                          |
 | Storage                      | 1 Volume, 1 GiB, SSD (gp2)                        |
 
@@ -74,16 +74,14 @@ Case 2 : As soon as the load goes down, we must observe the instances reduce in 
 * Using Stress as in Part I, try to activate your auto-scaling group and observe the instances automatically launched.
 
 ```
-//TODO VIDEO OF THE SEQUENCE (remove the images during which you are waiting for the system to react
+//TODO VIDEO OF THE SEQUENCE
+(remove the images during which you are waiting for the system to react)
 ```
 
 * After Stress sequence, observe how your infra returns to "normal" operation.
 
 ```
-//TODO VIDEO OF THE SEQUENCE (remove the images during which you are waiting for the system to react
+//TODO VIDEO OF THE SEQUENCE 
+(remove the images during which you are waiting for the system to react)
 ```
-
-
-
-
 
