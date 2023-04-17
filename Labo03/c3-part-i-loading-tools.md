@@ -1,4 +1,4 @@
-# C3 - Part I - Loading tools
+# L3 - Part I - Loading tools
 
 ### Step 0 - Testing policy
 
@@ -13,7 +13,7 @@
 //TODO JMeter download checksum
 ```
 
-* [ ] Open two terminal windows side-by-side and, using SSH, log into each instance. Bring up a continuous display of the Apache access log by running the command **sudo tail -f /var/log/apache2/access.log**. (path's log may differ depending on your apache config)
+* [ ] Open two terminal windows side-by-side and, using SSH, log into each instance. Bring up a continuous display of the Apache access log by running the command **sudo tail -f /var/log/apache2/access.log**. (path's log may differ depending on your apache config, e.g if you are using virtual host for you web app)
 
 ```
 //TODO 
@@ -73,7 +73,7 @@ Screen shot of htop and aws monitoring graphics... we should observe the same st
 [Explanation - about ]
 ```
 
-* Did this test really test the load balancing mechanism?
+* Did this test really test the load-balancing mechanism?
 
 ```
 [Explanation]

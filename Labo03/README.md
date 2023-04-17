@@ -1,25 +1,41 @@
-# Laboratoire 03
+# Lab 03
 
+## Organisation
 
+* Work in group of 2 (DevOps team as usual)
+* Duration 2 periods
 
 {% hint style="info" %}
-Delivery:
+Deliveries:
 
-* Part I: Thursday, the 18th of April, 6 pm
-* Part II: Monday, the 25th of April, 6 pm
-* Infra on AWS
-* Technical doc on private repo with notif on teams channel
+* When
+  * Part I & II: Friday, the 21th of April, 6 pm
+* What
+  * Infra on AWS
+  * Technical doc (lab report) on private repo with notif on teams channel
 {% endhint %}
 
+## Pedagogical objectives
+
+Become familiar with a cloud service that automates the scaling of a web application.
+
 ### Lab's targets:
+
+In this lab, you will use a cloud service (Auto Scaling Groups) that automates the launching and termination of instances to respond elastically to changes in user traffic.
 
 * Experimenting loading tools
 * Set monitoring on the cloud
 * Scale your infra automatically
 
-### Given
+## Prerequisites
 
-Before your start, you must have completed the previous labs.
+This lab is a follow-on to the lab on app scaling on AWS.
+
+Before your start, you must have completed the previous labs. The following ressources are needed:
+
+* A firewall configuration (Security Group) that allows SSH and HTTP traffic.
+* A MySQL (or MariaDb) database instance (RDS).
+* A Virtual Machine Image (AMI) with Drupal using the RDS as database instance.
 
 ### Backlog
 
