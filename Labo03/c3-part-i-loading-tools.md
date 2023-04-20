@@ -13,10 +13,16 @@
 //TODO JMeter download checksum
 ```
 
-* [ ] Open two terminal windows side-by-side and, using SSH, log into each instance. Bring up a continuous display of the Apache access log by running the command **sudo tail -f /var/log/apache2/access.log**. (path's log may differ depending on your apache config, e.g if you are using virtual host for you web app)
+* [ ] Open two terminal windows side-by-side and, using SSH, log into each instance. Bring up a continuous display of the Apache access log by running the command **sudo tail -f /var/log/apache2/access.log**. (path's log may differ depending on your apache config, e.g if you are using virtual host for you web app).
 
 ```
 //TODO 
+```
+
+* [ ] <mark style="color:red;">Observer the log. Are the source ip addresses those expected ?</mark>
+
+```
+//Observations
 ```
 
 * [ ] Through the AWS console, you can enable detailed (1-minute interval) monitoring of the two instances: Select an instance and click on the **Monitoring** tab. Click on the button **Manage detailed monitoring**.
@@ -61,18 +67,9 @@ https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/monitor-i
 Screen shot of htop and aws monitoring graphics... we should observe the same stress "spikes".
 ```
 
-### Step 3 - Analysis
+### Step 3 - Analysis - <mark style="color:red;">JMeter testing approach only</mark>
 
-* When you resolve the DNS name of the load balancer into IP addresses while the load balancer is under high load what do you see? Explain.
-
-```
-[INPUT]
-
-[OUTPUT]
-
-[Explanation - about ]
-```
-
+* ~~<mark style="color:red;">Question regarding DNS Lookup removed</mark>~~
 * Did this test really test the load-balancing mechanism?
 
 ```
