@@ -179,5 +179,3 @@ aws ec2 describe-internet-gateways --output table --region eu-south-1
 |||  Name         |  IGW-CLD              |||
 ||+---------------+-----------------------+||
 ```
-
-### CREATE PUBLIC SUBNET
