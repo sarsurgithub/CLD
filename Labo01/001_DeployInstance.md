@@ -50,7 +50,7 @@ Note : already done (team channel -> files/aws)
 |Key|Value|
 |:--|:--|
 |Name|SG-PRIVATE-DRUPAL-DEVOPSTEAM<xx>|
-|Outbound rules|Refer to infra schema|
+|Inbound rules|Refer to infra schema|
 |Outbound rules|Refer to infra schema|
 
 * Update the NAT Security group
