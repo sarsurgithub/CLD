@@ -18,16 +18,19 @@ TODO
 
     * What's the difference between time here in Switzerland and the time set on
       the machine?
+      
 ```
 TODO
 ```
 
     * What's the name of the hypervisor?
+    
 ```
 TODO
 ```
 
     * How much free space does the disk have?
+    
 ```
 TODO
 ```
