@@ -53,6 +53,6 @@ for implementation. Credentials are also supplied. If you don't follow
 * [Task 001 - Create a database using the Relational Database Service (RDS)](./001_RDS.md)
 * [Task 002 - Configure the Drupal master instance to use the RDS database](./002_Db_Migration.md)
 * [Task 003 - Create a custom virtual machine image and deploy a second Drupal instance](./003_Custom_AMI.md)
-* [Task 004 - Create a load balancer](./004_Create_Load_Balancer.md)
-* [Task 005 - Test the distributed application](./006_Test_The_Distributed_Application.md)
-* [Task 006 - Release Cloud Resources](./007_Release_Cloud_Resources.md)
+* Task 004 - Create a load balancer
+* Task 005 - Test the distributed application
+* Task 006 - Release Cloud Resources
