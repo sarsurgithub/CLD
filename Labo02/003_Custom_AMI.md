@@ -219,6 +219,13 @@ mariadb -h dbi-devopsteam13.cshki92s4w5p.eu-west-3.rds.amazonaws.com \
 -u bn_drupal -p2b9defd18a354804a1d4c4742c252fb39d808c12cfc2046ffc8f31432ae8a060 \
 bitnami_drupal -e "SHOW GRANTS for bn_drupal@'10.0.13.%';"
 [OUTPUT]
+
++--------------------+
+| Database           |
++--------------------+
+| bitnami_drupal     |
+| information_schema |
++--------------------+
 ```
 
 ```sql
@@ -228,6 +235,13 @@ mariadb -h dbi-devopsteam13.cshki92s4w5p.eu-west-3.rds.amazonaws.com \
 -u bn_drupal -p2b9defd18a354804a1d4c4742c252fb39d808c12cfc2046ffc8f31432ae8a060 \
 bitnami_drupal -e "SHOW GRANTS for bn_drupal@'10.0.13.%';"
 [OUTPUT]
+
++--------------------+
+| Database           |
++--------------------+
+| bitnami_drupal     |
+| information_schema |
++--------------------+
 ```
 
 ### Check HTTP Accesses
