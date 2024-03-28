@@ -15,9 +15,19 @@ Note : stop the instance before
 
 ```bash
 [INPUT]
+aws ec2 stop-instances --instance-id i-0e4b9e05b37bc28d7
 
+aws ec2 create-image \
+    --instance-id i-0e4b9e05b37bc28d7 \
+    --name "AMI_PRIVATE_DRUPAL_DEVOPSTEAM13_LABO02_RDS" \
+    --description "AMI_PRIVATE_DRUPAL_DEVOPSTEAM13_LABO02_RDS" \
+    --tag-specifications 'ResourceType=image,Tags=[{Key=Name,Value=AMI_PRIVATE_DRUPAL_DEVOPSTEAM13_LABO02_RDS}]'
+```
+```bash
 [OUTPUT]
-
+{
+    "ImageId": "ami-018695642be82c95c"
+}
 ```
 
 ## Task 02 - Deploy Instances
@@ -33,8 +43,24 @@ Note : stop the instance before
 
 ```bash
 [INPUT]
+aws ec2 start-instances --instance-ids i-0e4b9e05b37bc28d7
 
+aws ec2 run-instances \
+   --image-id ami-018695642be82c95c \
+   --count 1 \
+   --instance-type t3.micro \
+   --key-name CLD_KEY_DRUPAL_DEVOPSTEAM13 \
+   --private-ip-address 10.0.13.140 \
+   --security-group-ids sg-060333a9f2656e446 \
+   --subnet-id subnet-04a2fc4d8de790824 \
+   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=EC2_PRIVATE_DRUPAL_DEVOPSTEAM18_B}]' \
+   --placement AvailabilityZone=eu-west-3b
+
+```
+
+```bash
 [OUTPUT]
+
 ```
 
 ## Task 03 - Test the connectivity
