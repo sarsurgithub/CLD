@@ -232,14 +232,14 @@ Note : In the EC2 console select the Target Group. In the
 * Update your string connection to test your ELB and test it
 
 ```bash
-//connection string updated
+ssh devopsteam13@15.188.43.46 -i CLD_KEY_DMZ_DEVOPSTEAM13.pem -L 8888:internal-ELB-DEVOPSTEAM13-10252911.eu-west-3.elb.amazonaws.com:8080
 ```
 
 * Test your application through your ssh tunneling
 
 ```bash
 [INPUT]
-curl localhost:[local port forwarded]
+curl localhost:8888
 
 [OUTPUT]
 
