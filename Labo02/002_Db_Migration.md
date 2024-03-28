@@ -254,7 +254,7 @@ GRANT ALL PRIVILEGES ON bitnami_drupal.* TO 'bn_drupal'@'10.0.13.0/255.255.255.2
 ```sql
 //validation
 [INPUT]
-SHOW GRANTS for 'bn_drupal'@'10.0.[XX].0/[yourMask]]';
+SHOW GRANTS for 'bn_drupal'@'10.0.13.0/255.255.255.240';
 
 [OUTPUT]
 +----------------------------------------------------------------------------------------------------------------------------------+
@@ -292,7 +292,7 @@ bitnami_drupal -e "SHOW DATABASES;"
 [INPUT]
 mariadb -h dbi-devopsteam13.cshki92s4w5p.eu-west-3.rds.amazonaws.com \
 -u admin -p'DEVOPSTEAM13!' \
--e "GRANT ALL PRIVILEGES ON bitnami_drupal.* TO 'bn_drupal'@'10.0.18.128/255.255.255.240' IDENTIFIED BY '2b9defd18a354804a1d4c4742c252fb39d808c12cfc2046ffc8f31432ae8a060';"
+-e "GRANT ALL PRIVILEGES ON bitnami_drupal.* TO 'bn_drupal'@'10.0.13.128/255.255.255.240' IDENTIFIED BY '2b9defd18a354804a1d4c4742c252fb39d808c12cfc2046ffc8f31432ae8a060';"
 
 // Validation
 mariadb -h dbi-devopsteam13.cshki92s4w5p.eu-west-3.rds.amazonaws.com \

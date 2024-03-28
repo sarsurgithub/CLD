@@ -255,5 +255,7 @@ We can see that the address has also changed in the other instance. In deed, the
 * Observations ?
 
 ```
-//TODO
+The profile picture is changed. 
+
+However, it is not changed on every instances. The profile picture is not stored in the database but in the file system. 
 ```
