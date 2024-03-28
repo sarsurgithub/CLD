@@ -12,16 +12,63 @@ instances.
 
 |Key|Value|
 |:--|:--|
-|Name|SG-DEVOPSTEAM[XX]-LB|
+|Name|SG-DEVOPSTEAM13-LB|
 |Inbound Rules|Application Load Balancer|
 |Outbound Rules|Refer to the infra schema|
 
 ```bash
 [INPUT]
+aws ec2 create-security-group \
+    --group-name SG-DEVOPSTEAM13-LB \
+    --description "Allow load balancer traffic" \
+    --vpc-id vpc-03d46c285a2af77ba \
+    --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=SG-DEVOPSTEAM13-LB}]'
 
 
 [OUTPUT]
+{
+    "GroupId": "sg-0a35e6d8e232f46eb",
+    "Tags": [
+        {
+            "Key": "Name",
+            "Value": "SG-DEVOPSTEAM13-LB"
+        }
+    ]
+}
 
+[INPUT]
+aws ec2 authorize-security-group-ingress \
+    --group-id sg-0a35e6d8e232f46eb \
+    --ip-permissions IpProtocol=tcp,FromPort=8080,ToPort=8080,IpRanges='[{CidrIp=10.0.0.0/16, Description="Allow HTTP from DMZ"}]' \
+    --tag-specifications 'ResourceType=security-group-rule,Tags=[{Key=Name,Value=HTTP-ALLOW}, {Key=Description, Value=Allow HTTP from DMZ}]'
+
+[OUTPUT]
+{
+    "Return": true,
+    "SecurityGroupRules": [
+        {
+            "SecurityGroupRuleId": "sgr-0e02db3cb73ee574b",
+            "GroupId": "sg-0a35e6d8e232f46eb",
+            "GroupOwnerId": "709024702237",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 8080,
+            "ToPort": 8080,
+            "CidrIpv4": "10.0.0.0/16",
+            "Description": "Allow HTTP from DMZ",
+            "Tags": [
+                {
+                    "Key": "Description",
+                    "Value": "Allow HTTP from DMZ"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "HTTP-ALLOW"
+                }
+            ]
+        }
+    ]
+}
 ```
 
 * Create the Target Group
@@ -29,7 +76,7 @@ instances.
 |Key|Value|
 |:--|:--|
 |Target type|Instances|
-|Name|TG-DEVOPSTEAM[XX]|
+|Name|TG-DEVOPSTEAM13|
 |Protocol and port|Refer to the infra schema|
 |Ip Address type|IPv4|
 |VPC|Refer to the infra schema|
@@ -45,10 +92,49 @@ instances.
 
 ```bash
 [INPUT]
-
+aws elbv2 create-target-group \
+    --name TG-DEVOPSTEAM13 \
+    --protocol HTTP \
+    --protocol-version HTTP1 \
+    --port 8080 \
+    --vpc-id vpc-03d46c285a2af77ba \
+    --health-check-protocol HTTP \
+    --health-check-path / \
+    --health-check-port 8080 \
+    --health-check-interval-seconds 10 \
+    --health-check-timeout-seconds 5 \
+    --healthy-threshold-count 2 \
+    --unhealthy-threshold-count 2 \
+    --target-type instance \
+    --matcher HttpCode=200 \
+    --tags 'Key=Name,Value=TG-DEVOPSTEAM13'
 
 [OUTPUT]
-
+{
+    "TargetGroups": [
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-3:709024702237:targetgroup/TG-DEVOPSTEAM13/71594bed38884946",
+            "TargetGroupName": "TG-DEVOPSTEAM13",
+            "Protocol": "HTTP",
+            "Port": 8080,
+            "VpcId": "vpc-03d46c285a2af77ba",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckPort": "8080",
+            "HealthCheckEnabled": true,
+            "HealthCheckIntervalSeconds": 10,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 2,
+            "UnhealthyThresholdCount": 2,
+            "HealthCheckPath": "/",
+            "Matcher": {
+                "HttpCode": "200"
+            },
+            "TargetType": "instance",
+            "ProtocolVersion": "HTTP1",
+            "IpAddressType": "ipv4"
+        }
+    ]
+}
 ```
 
 
@@ -61,7 +147,7 @@ instances.
 |Key|Value|
 |:--|:--|
 |Type|Application Load Balancer|
-|Name|ELB-DEVOPSTEAM99|
+|Name|ELB-DEVOPSTEAM13|
 |Scheme|Internal|
 |Ip Address type|IPv4|
 |VPC|Refer to the infra schema|
@@ -74,22 +160,67 @@ field not mentioned at its default value):
 
 ```bash
 [INPUT]
-
-
+aws elbv2 create-load-balancer \
+    --name ELB-DEVOPSTEAM13 \
+    --subnets subnet-0d8d40fde23f8b6cc subnet-00805c7306d20a784 \
+    --security-groups sg-0a35e6d8e232f46eb \
+    --scheme internal \
+    --type application \
+    --ip-address-type ipv4 \
+    --tags 'Key=Name,Value=ELB-DEVOPSTEAM13'
 [OUTPUT]
-
+{
+    "LoadBalancers": [
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:eu-west-3:709024702237:loadbalancer/app/ELB-DEVOPSTEAM13/2fe4aa1be2fdd431",
+            "DNSName": "internal-ELB-DEVOPSTEAM13-10252911.eu-west-3.elb.amazonaws.com",
+            "CanonicalHostedZoneId": "Z3Q77PNBQS71R4",
+            "CreatedTime": "2024-03-28T17:03:20.320000+00:00",
+            "LoadBalancerName": "ELB-DEVOPSTEAM13",
+            "Scheme": "internal",
+            "VpcId": "vpc-03d46c285a2af77ba",
+            "State": {
+                "Code": "provisioning"
+            },
+            "Type": "application",
+            "AvailabilityZones": [
+                {
+                    "ZoneName": "eu-west-3b",
+                    "SubnetId": "subnet-00805c7306d20a784",
+                    "LoadBalancerAddresses": []
+                },
+                {
+                    "ZoneName": "eu-west-3a",
+                    "SubnetId": "subnet-0d8d40fde23f8b6cc",
+                    "LoadBalancerAddresses": []
+                }
+            ],
+            "SecurityGroups": [
+                "sg-0a35e6d8e232f46eb"
+            ],
+            "IpAddressType": "ipv4"
+        }
+    ]
+}
 ```
 
 * Get the ELB FQDN (DNS NAME - A Record)
 
 ```bash
 [INPUT]
-
+aws elbv2 describe-load-balancers \
+    --names ELB-DEVOPSTEAM13 \
+    --query 'LoadBalancers[0].DNSName' \
+    --output text
 
 [OUTPUT]
-
+internal-ELB-DEVOPSTEAM13-10252911.eu-west-3.elb.amazonaws.com
 ```
+* Add target group in our 2 instances
+![target_groups](image.png)
 
+* add listener
+![listener](image-1.png)
 * Get the ELB deployment status
 
 Note : In the EC2 console select the Target Group. In the
