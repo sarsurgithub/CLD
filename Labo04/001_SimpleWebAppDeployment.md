@@ -58,23 +58,34 @@ Create a simple web application as follows.
    ```
    //TODO
    ```
+    
+    5.1 The class `HelloAppEngine` is a Servlet that extends the `HttpServlet` class. It overrides the `doGet` method to handle the HTTP GET requests. The `doGet` method writes a response to the client with the message "Hello App Engine!".
+
+
 
 6. Note the annotation starting with `@WebServlet` in front of the
    Servlet. It maps the route `hello` to the Servlet. The mappings are needed by the web application server to route the incoming HTTP requests to the right Servlets.
 
+
+
 7. In the `webapp/WEB-INF` directory, you have a file called
    `web.xml`. What information does it contain? And what is its use ?
 
-   ```
-   //TODO
-   ```
+  
+   
+    7.1 The `web.xml` file is a deployment descriptor for the web application. The `welcome-file-list` is used to specify the file that should be loaded when the user visits the application by default. It defines everything the server needs to know concerning the servlets, listeners, initalization parameters, etc...
+
+
 
 8. Inspect the Google App Engine configuration file
    `appengine-web.xml` in `webapp/WEB-INF`. What information does it contain?
 
-   ```
-   //TODO
-   ```
+
+   
+    8.1 The `appengine-web.xml` is a configuration file to specify information about the application. It also specify which files are static and which are resources file for the application. In this case it specifies the runtime environment, java8, the fact that it is threadsafe and the file for the system properties.
+
+
+
 
 9. Edit the Google App Engine configuration file as follows:
 
@@ -84,9 +95,7 @@ Create a simple web application as follows.
 10. In the `webapp` directory you have also the file called
     `index.jsp` spotted in `web.xml`. What is its use ?
 
-    ```
-    //TODO
-    ```
+    10.1 It is the default page that is loaded when the user visits the application. It is a JSP file that contains HTML and Java code. In this case, it contains a simple HTML page with a title and a message "Hello App Engine!".
 
 ---
 
