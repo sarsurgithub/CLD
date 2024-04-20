@@ -82,7 +82,7 @@ To develop and test the Servlet perform the following steps:
 Deliverables:
 
 ```
-//TODO - Commit and publish the servlet in your repo, in the 'labo4' directory.
+Commit and publish the servlet in your repo, in the 'labo4' directory.
 ```
 
 ```
